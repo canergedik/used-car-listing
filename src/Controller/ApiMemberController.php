@@ -71,14 +71,14 @@ class ApiMemberController extends AbstractController
             foreach($jsonDataToArray as $item){
               $products = new Products();
               $products->setUsername($item['name']);
-              $products->setScreenName($item['name']);
+              $products->setScreenName($item['username']);
               $products->setCreatedDate(time());
               $products->setMake($item['make']);
               $products->setModel($item['model']);
               $products->setYear($item['year']);
               $products->setFuelType($item['fuel']);
               $products->setContent($item['title']);
-              $products->setDescription($item['title']);
+              $products->setDescription($item['content']);
               $products->setTweetId($item['product_id']);
               $products->setImage($item['product_image']);
               $products->setLocation($item['location']);
