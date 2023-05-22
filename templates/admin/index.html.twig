@@ -1,0 +1,77 @@
+{% extends "common/base.html.twig" %}
+
+{% block body %}
+
+
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
+
+    <!-- fixed-top-->
+ 
+    <div class="grid">
+        <div class="grid-list">
+          {% for item in data %}
+          <div class="user-info">
+             <img src="{{item.profile_image_url is defined ?  item.profile_image_url|replace({'_normal':''}) : ''}}">
+             <div class="attributes">
+                      <span>@{{item.username}}</span>
+                      <p>{{item.bio}}</p>
+                      <div class="ml-0">
+                            <span> {{item.make is defined ? item.make : '' }}  </span> 
+                            - <span class="ml-3">   {{item.model is defined ? item.model : '' }}  </span>
+                      </div>
+                     
+             
+             </div>
+
+          </div>
+          {% endfor %}
+
+       </div>
+         <div class="pagination"> 
+              <ul class="pagination">
+                        {{pager|raw}}
+               </ul>
+         </div>    
+    </div>
+
+   
+
+    <div class="my-5 ml-4"> 
+      <form id="filter_form"  enctype="multipart/form-data"  method="POST"> 
+              <div  class="checkboxes" id="make" style="">
+                    <h2 class=" ml-1 text-danger make_title"> 
+                        Markalar
+                    </h2>
+                    {% for id,make in makes  %}
+                        <label style="" for="{{make|replace({' ':'-'})  ~ '-' ~ id }}">
+                            <input name="make" type="checkbox" id="{{make|replace({' ':'-'})  ~ '-' ~ id }}" value= "{{make|lower}} " />{{make|capitalize }}
+                        </label>
+                    {% endfor %}
+ 
+              </div>
+               <label style="" for="year">
+                            <input name="year" type="checkbox" id="year" value = "2015">
+                        </label>
+              <div class="checkboxes" id="model" style="">
+                    <h2 class="ml-1 mt-2 text-danger"> 
+                        Modeller
+                    </h2>
+                    
+                    <ul id="model_list"></ul>
+              </div>
+-        <button type="submit" class="btn  btn-outline-success"> Filtrele  </button>
+      </form>
+    </div>
+
+<script type="text/javascript">
+       $(document).ready(function(){
+        //$(".model_list").trigger("click");
+        });
+
+ </script>
+
+   
+
+{% endblock %}
+
+

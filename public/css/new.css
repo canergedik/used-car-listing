@@ -1,0 +1,182 @@
+
+.grid{
+    left: 260px !important;
+    position: absolute;
+  }
+
+body{
+  background-color:#2a2e30 !important
+} 
+  
+.grid-list{
+    padding-top: 40px;
+    padding-bottom: 100px;
+    min-height:650px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    
+  
+  }
+  
+  .grid-list div{
+    margin: 30px;
+    height: 350px;
+    width: 270px;
+  }
+  .grid-list img{
+    width: 100%;
+    max-height: 225px;
+  }
+  div.attributes{
+    padding-top: 5x;
+    position: absolute;
+
+}
+
+.button-div { 
+  padding: 0px !important;
+  display: block !important;
+  align-items: center;
+  
+}
+
+
+div.user-info{
+     border:2px solid whitesmoke;
+     border-radius: 8px;
+    
+     min-height: 400px;
+    }
+    div.user-info p {
+        color:rgb(234, 223, 223);
+        display: flex;
+        max-height: 60px;
+        overflow: hidden;
+        text-indent: 0;
+        padding: 0 18px;
+        font-size: 12px;
+        margin-top: 5px;
+        flex-wrap: wrap;
+        
+    }
+
+
+
+div.attributes{
+    display: block !important;
+    margin:0;
+    text-indent: 16px;
+    padding-top: 10px;
+}
+
+
+
+div.pagination{
+   margin: 0px;
+   padding: 0;
+}
+ul.pagination  {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left:420px;
+  margin-bottom: 60px;
+  border-radius: 0.5rem;
+  padding: 1rem 1rem;
+}
+.pagination li {
+  margin: 0.25rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+}
+.pagination li {
+  background-color: #5e5a5a;
+  border:1px solid  #303030;
+}
+
+.pagination li a {
+  color:rgba(245, 245, 245, 0.755);
+  font-weight: 600;
+}
+
+.pagination li:hover a{
+  border-color:red;
+  color:rgb(250, 8, 8) !important;
+
+}
+.active{
+  background-color: #118bc8 !important;
+  color: wheat;
+  
+}
+
+div.checkboxes{
+  height: 420px !important;
+  overflow-y: hidden !important;
+  width: 250px;
+}
+
+.checkboxes label{
+
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 2;
+    display: grid;
+    grid-template-columns: 2em auto;
+    gap: 0.2em;
+    color: rgba(245, 245, 245, 0.803) !important; 
+}
+
+.checkboxes input{
+  width: 25px;
+  height: 25px;
+}
+
+.make_title {
+  position: sticky;
+}
+
+[class^='make_name_']{
+  color: red !important;
+  font-weight: 600;
+  text-transform: capitalize;
+  position: sticky !important  ;
+}
+.model_list {
+  text-indent: 18px !important;
+  list-style: none ! important;
+  cursor: pointer;
+}
+.selected {
+  color:green !important;
+}
+
+
+
+
+
+
+
+
+  
+
+
+
+ /*******/
+
+
+
+  @media only screen and (max-width: 768px) {
+    .grid {
+       left: 0 !important;
+    }
+    ul.pagination{
+      margin-left: 200px;
+    
+      
+    }
+  }
+  

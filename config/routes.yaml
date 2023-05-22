@@ -1,0 +1,44 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+
+result_list:
+    path:       /web/admin/listing/{page}
+    controller: App\Controller\IndexController::index
+    defaults:
+        page: 1
+    requirements:
+        page: '\d+'
+
+result_list_query:
+    path:       /web/admin/listing/{q}/{page}
+    controller: App\Controller\MemberController::index
+    defaults:
+        page: 1
+    requirements:
+        page: '\d+'
+
+result_edit_query:
+    path:       /web/edit/{page}
+    controller: App\Controller\MemberController::edit
+    defaults:
+        page: 1
+    requirements:
+        page: '\d+'
+
+
+
+result_search_filter:
+    path:       /web/search-filter
+    controller: App\Controller\IndexController::getSearchFilter
+    methods: POST
+
+
+
+
+
+
+      

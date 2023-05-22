@@ -1,0 +1,27 @@
+<div class="container ">
+       <div class="float-right mb-2 text-light font-bold	">
+          {{ app.request.get('page',1) }} - {{totalPage}}
+       </div>
+        <table class="table table-dark">
+                <thead>
+                    <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Screen_name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Edıt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                        <tr>
+                            <th scope="row">{{item.id_str}}</th>
+                            <td>{{item.screen_name}}</td>
+                            <td>{{item.bio}}</td>
+                            <td><i class="fa-sharp fa-solid fa-trash delete" data-id = "{{item.id_str}}" style="color: #11ac14;"></i></td>
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+        </table>
+    </div>
