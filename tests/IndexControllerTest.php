@@ -70,16 +70,26 @@ class IndexControllerTest extends WebTestCase
 
 
   public function multipleQuery($item){
-        $queryİtem = '(';
-        $b = explode('+',$item);
-        foreach($b as $value ){
-            $value = trim($value);
-            $queryİtem .= "'$value',";
-        }
-         $queryİtem .= ')';
-         $queryİtem = str_replace(',)',')',$queryİtem);
-         return $queryİtem;
+    $queryİtem = '(';
+    $item = explode('_',$item);
+      foreach($item as $value ){
+        $queryİtem .= "'$value'".($value != end($item) ? ', ' : '') ;
+      }
+    $queryİtem .= ')';
+    return $queryİtem;
   }
+
+  public function modelQuery($item){
+    $item =    explode('___',$item);
+    $modelDatas = [];
+    $this->assertIsArray($item);
+       foreach($item as $value){
+           $model = explode('__',$value);
+           $modelDatas[$model[0]][] =  $model[1];
+       }
+    return $modelDatas;
+  }
+
 
 
     public function setVariable(){
@@ -97,7 +107,7 @@ class IndexControllerTest extends WebTestCase
         $this->setVariable();
         $this->createSqlQuery =  $query;
         if(isset($this->make)){
-           if(preg_match('/\+/',$this->make)){
+           if(preg_match('/\_/',$this->make)){
             $this->createSqlQuery .= ' WHERE make IN  '.$this->multipleQuery($this->make);
            }
            else{
@@ -105,13 +115,14 @@ class IndexControllerTest extends WebTestCase
            }
         }
         if(isset($this->model)){
-          if(preg_match('/\+/',$this->model)){
-            $this->createSqlQuery .= ' WHERE model IN  '.$this->multipleQuery($this->model);
-           }
-          else{
-            $this->createSqlQuery .= 'AND model="'.$this->model.'"';
-          }
-        }
+          $modelData = $this->modelQuery($this->model);
+          $modelCount = 1;
+          foreach($modelData as $key => $item){
+             $this->createSqlQuery = str_replace(''.$key.'','',$this->createSqlQuery);
+             $this->createSqlQuery  .= ' OR  make="'.$key.'" and model IN '.$this->multipleQuery(implode('_',$item)). ($modelCount < count($modelData)  ? '': ' ');
+             $modelCount += 1;
+            }
+         }
     
     
         if(isset($this->year)){
