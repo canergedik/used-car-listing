@@ -247,6 +247,6 @@ class __TwigTemplate_5afcbf959d6c21eb6359fce3f1a1954a extends \Twig\Template
 <script src=\"//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js\"></script>
 <script src=\"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>
 </body>
-</html>", "member/register.html.twig", "C:\\xampp\\htdocs\\used-cars-listing-demo\\templates\\member\\register.html.twig");
+</html>", "member/register.html.twig", "C:\\xampp\\htdocs\\used-car-listing\\templates\\member\\register.html.twig");
     }
 }

@@ -65,6 +65,6 @@ class __TwigTemplate_65b119f2307045e8b2f77eed6a62736f extends \Twig\Template
     <circle cx=\"12\" cy=\"7\" r=\"4\"></circle>
     <path d=\"M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2\"></path>
 </svg>
-", "@Security/Collector/icon.svg", "C:\\xampp\\htdocs\\used-cars-listing-demo\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\icon.svg");
+", "@Security/Collector/icon.svg", "C:\\xampp\\htdocs\\used-car-listing\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\icon.svg");
     }
 }

@@ -1,17 +1,12 @@
 <?php
 namespace App\Controller;
 use App\Configs\Pager;
-use App\Entity\Products;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\ORM\Tools\Pagination\Paginator;
-use Doctrine\ORM\Query;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\Security;
-
 
 #[Route('/web', name: 'web_')]
 class IndexController extends AbstractController
@@ -19,32 +14,20 @@ class IndexController extends AbstractController
     public $page;
     public $q;
     public $requestStack;
-
     public $doctrineManager;
-    
     public static $pageSize = 50;
-
     public $price_min;
-    
     public $price_max;
-
     public $year;
-    
     public $make;
-
     public $model;
-
     public $createSqlQuery;
-
     public $security;
-    
-
     public function __construct(RequestStack $requestStack, ManagerRegistry $managerRegistry,Security $security  ){
         $this->requestStack = $requestStack;
         $this->doctrineManager = $managerRegistry;
         $this->security = $security;
     }
-
     public function setVariable(){
         $this->q = $this->requestData('q');
         $this->page =  $this->requestData('page') ?? 1;
@@ -62,7 +45,6 @@ class IndexController extends AbstractController
         else if($this->requestStack->getCurrentRequest()->attributes->get('_route_params')){
           $data =  $this->requestStack->getCurrentRequest()->attributes->get('_route_params');
         }
-      
         else{
           $data = $this->requestStack->getCurrentRequest()->query->all();
         }
@@ -93,7 +75,6 @@ class IndexController extends AbstractController
   public function createSearchQuery($query = 'SELECT * FROM products'){
     $this->setVariable();
     $this->createSqlQuery =  $query;
-    
     if(isset($this->make)){
        if(preg_match('/\_/',$this->make)){
         $this->createSqlQuery .= ' WHERE make IN  '.$this->multipleQuery($this->make);
@@ -102,8 +83,7 @@ class IndexController extends AbstractController
         $this->createSqlQuery .= ' WHERE make="'.$this->make.'"';
        }
     } 
-    
-   
+
     if(isset($this->model)){
         $modelData = $this->modelQuery($this->model);
         $modelCount = 1;
@@ -128,10 +108,8 @@ class IndexController extends AbstractController
       if(isset($this->page)){
         $this->createSqlQuery .=   " ORDER BY created_date DESC  LIMIT ".self::$pageSize." OFFSET ".($this->page == 1 ? "0" : self::$pageSize*($this->page-1));
       }
-    }    
-    
+    }   
     return $this->createSqlQuery;
-    
   }
 
   public function getSearchFilter(){
@@ -149,11 +127,7 @@ class IndexController extends AbstractController
          }
     }
     return $this->json($datas);
-  }
-
-
-  
-    public function index(Pager $pager): Response
+  }    public function index(Pager $pager): Response
     {  
        $datas = array();
        $q = $this->q ? $this->q.'/'  : '';
@@ -167,7 +141,6 @@ class IndexController extends AbstractController
        $datas['pager'] = $pager->pagination($pagesCount,$this->page,$q);
        $datas['count'] = $dataCount;
        if($this->requestStack->getCurrentRequest()->isXmlHttpRequest()){
-      
         return  $this->json(['pager'=>$datas['pager'],'response' => $this->render('admin/listing_data.html.twig',$datas)->getContent()]);
        }
        return  $this->render('admin/index.html.twig',$datas);

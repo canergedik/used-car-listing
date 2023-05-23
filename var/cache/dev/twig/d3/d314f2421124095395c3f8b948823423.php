@@ -233,6 +233,6 @@ class __TwigTemplate_91125e8b114f2d0770a46d3294eb14f2 extends \Twig\Template
      
 {% endblock %}
 
-", "admin/change_password.html.twig", "C:\\xampp\\htdocs\\used-cars-listing-demo\\templates\\admin\\change_password.html.twig");
+", "admin/change_password.html.twig", "C:\\xampp\\htdocs\\used-car-listing\\templates\\admin\\change_password.html.twig");
     }
 }

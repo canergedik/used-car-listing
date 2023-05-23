@@ -139,6 +139,6 @@ class __TwigTemplate_2e8d970cf827784c3fd15d55b22bd057 extends \Twig\Template
                 </tbody>
 
         </table>
-    </div>", "admin/edit-data.html.twig", "C:\\xampp\\htdocs\\used-cars-listing-demo\\templates\\admin\\edit-data.html.twig");
+    </div>", "admin/edit-data.html.twig", "C:\\xampp\\htdocs\\used-car-listing\\templates\\admin\\edit-data.html.twig");
     }
 }

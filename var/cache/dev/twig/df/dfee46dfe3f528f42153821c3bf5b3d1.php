@@ -283,6 +283,6 @@ class __TwigTemplate_c8b4c4ab0c794487b5562cdc02f6ad2a extends \Twig\Template
 {% endblock %}
 
 
-", "admin/remove-datas.html.twig", "C:\\xampp\\htdocs\\used-cars-listing-demo\\templates\\admin\\remove-datas.html.twig");
+", "admin/remove-datas.html.twig", "C:\\xampp\\htdocs\\used-car-listing\\templates\\admin\\remove-datas.html.twig");
     }
 }

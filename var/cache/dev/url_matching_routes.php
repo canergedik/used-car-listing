@@ -9,7 +9,8 @@ return [
     false, // $matchHost
     [ // $staticRoutes
         '/api/v1/user/add-file' => [[['_route' => 'api_upload_form', '_controller' => 'App\\Controller\\ApiMemberController::userSetForm'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/api/v1/user/change-password' => [[['_route' => 'api_change_password', '_controller' => 'App\\Controller\\ApiMemberController::change_password'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/api/v1/user/change-password' => [[['_route' => 'api_change_password', '_controller' => 'App\\Controller\\ApiMemberController::changePassword'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/api/v1/user/auth-token' => [[['_route' => 'api_auth_token', '_controller' => 'App\\Controller\\ApiMemberController::authToken'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/web/register' => [[['_route' => 'web_member', '_controller' => 'App\\Controller\\MemberController::userCreate'], null, null, null, false, false, null]],
         '/web/auth' => [[['_route' => 'web_auth', '_controller' => 'App\\Controller\\MemberController::web_auth'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/web/login' => [[['_route' => 'web_login', '_controller' => 'App\\Controller\\MemberController::login'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],

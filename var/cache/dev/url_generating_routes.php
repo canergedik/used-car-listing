@@ -5,7 +5,8 @@
 return [
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
     'api_upload_form' => [[], ['_controller' => 'App\\Controller\\ApiMemberController::userSetForm'], [], [['text', '/api/v1/user/add-file']], [], [], []],
-    'api_change_password' => [[], ['_controller' => 'App\\Controller\\ApiMemberController::change_password'], [], [['text', '/api/v1/user/change-password']], [], [], []],
+    'api_change_password' => [[], ['_controller' => 'App\\Controller\\ApiMemberController::changePassword'], [], [['text', '/api/v1/user/change-password']], [], [], []],
+    'api_auth_token' => [[], ['_controller' => 'App\\Controller\\ApiMemberController::authToken'], [], [['text', '/api/v1/user/auth-token']], [], [], []],
     'web_member' => [[], ['_controller' => 'App\\Controller\\MemberController::userCreate'], [], [['text', '/web/register']], [], [], []],
     'web_auth' => [[], ['_controller' => 'App\\Controller\\MemberController::web_auth'], [], [['text', '/web/auth']], [], [], []],
     'web_login' => [[], ['_controller' => 'App\\Controller\\MemberController::login'], [], [['text', '/web/login']], [], [], []],

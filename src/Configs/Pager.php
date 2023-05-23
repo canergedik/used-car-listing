@@ -16,7 +16,7 @@ class Pager {
    }
    
    public function pagination(int $total_pages,int $page,$q=''){
-       self::$pagePrefix =  $_SERVER['SERVER_NAME'] == 'localhost' ?  '/used-cars-listing-demo/public' : ''; 
+       self::$pagePrefix =  $_SERVER['SERVER_NAME'] == 'localhost' ?  '/used-car-listing/public' : ''; 
     
        $pagination_url= '';
        if($page>=2)  $pagination_url.= "<li> <a href='".self::$pagePrefix."/web/admin/listing/$q".($page-1)."'>  Prev </a></li>";   

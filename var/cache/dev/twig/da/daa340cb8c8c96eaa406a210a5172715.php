@@ -77,6 +77,6 @@ class __TwigTemplate_a6376c1a444e93f74fd8f32e17b6a69e extends \Twig\Template
 <body>
     <h1>404</h1>
 </body>
-</html>", "admin/404.html.twig", "C:\\xampp\\htdocs\\used-cars-listing-demo\\templates\\admin\\404.html.twig");
+</html>", "admin/404.html.twig", "C:\\xampp\\htdocs\\used-car-listing\\templates\\admin\\404.html.twig");
     }
 }

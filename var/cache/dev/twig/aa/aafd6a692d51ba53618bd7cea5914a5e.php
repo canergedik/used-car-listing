@@ -70,35 +70,38 @@ class __TwigTemplate_cc72a536338e8e4487e49549470ee2bd extends \Twig\Template
         $context['_seq'] = twig_ensure_traversable((isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 12, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
             // line 13
-            echo "          <div class=\"user-info\">
-             <img src=\"";
+            echo "            <div class=\"user-info\">
+                <img src=\"";
             // line 14
             ((twig_get_attribute($this->env, $this->source, $context["item"], "profile_image_url", [], "any", true, true, false, 14)) ? (print (twig_escape_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, $context["item"], "profile_image_url", [], "any", false, false, false, 14), ["_normal" => ""]), "html", null, true))) : (print ("")));
             echo "\">
-             <div class=\"attributes\">
-                      <span>@";
+                    <div class=\"attributes\">
+                            <span>";
             // line 16
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "username", [], "any", false, false, false, 16), "html", null, true);
+            ((twig_get_attribute($this->env, $this->source, $context["item"], "username", [], "any", true, true, false, 16)) ? (print (twig_escape_filter($this->env, ("@" . twig_get_attribute($this->env, $this->source, $context["item"], "username", [], "any", false, false, false, 16)), "html", null, true))) : (print ("")));
             echo "</span>
-                      <p>";
+                            <p>";
             // line 17
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "bio", [], "any", false, false, false, 17), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "description", [], "any", false, false, false, 17), "html", null, true);
             echo "</p>
-                      <div class=\"ml-0\">
-                            <span> ";
+                            <div class=\"ml-0\">
+                                      <span> ";
             // line 19
             ((twig_get_attribute($this->env, $this->source, $context["item"], "make", [], "any", true, true, false, 19)) ? (print (twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "make", [], "any", false, false, false, 19), "html", null, true))) : (print ("")));
             echo "  </span> 
-                            - <span class=\"ml-3\">   ";
+                                     - <span class=\"ml-0\">   ";
             // line 20
             ((twig_get_attribute($this->env, $this->source, $context["item"], "model", [], "any", true, true, false, 20)) ? (print (twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "model", [], "any", false, false, false, 20), "html", null, true))) : (print ("")));
             echo "  </span>
-                      </div>
-                     
-             
-             </div>
-
-          </div>
+                                      <span style=\"display:block; top:30px;\" >  ";
+            // line 21
+            ((twig_get_attribute($this->env, $this->source, $context["item"], "price", [], "any", true, true, false, 21)) ? (print (twig_escape_filter($this->env, ("Fiyat: " . twig_get_attribute($this->env, $this->source, $context["item"], "price", [], "any", false, false, false, 21)), "html", null, true))) : (print ("")));
+            echo "  </span>
+                            </div>
+                    </div>
+                   
+            </div>
+            
           ";
         }
         $_parent = $context['_parent'];
@@ -160,7 +163,6 @@ class __TwigTemplate_cc72a536338e8e4487e49549470ee2bd extends \Twig\Template
                     </h2>
                     
                     <ul id=\"model_list\"></ul>
-                    
               </div>
 -        <button type=\"submit\" class=\"btn  btn-outline-success\"> Filtrele  </button>
       </form>
@@ -193,7 +195,7 @@ class __TwigTemplate_cc72a536338e8e4487e49549470ee2bd extends \Twig\Template
 
     public function getDebugInfo()
     {
-        return array (  152 => 50,  139 => 47,  134 => 46,  130 => 45,  114 => 32,  108 => 28,  94 => 20,  90 => 19,  85 => 17,  81 => 16,  76 => 14,  73 => 13,  69 => 12,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  155 => 50,  142 => 47,  137 => 46,  133 => 45,  117 => 32,  111 => 28,  98 => 21,  94 => 20,  90 => 19,  85 => 17,  81 => 16,  76 => 14,  73 => 13,  69 => 12,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -210,20 +212,20 @@ class __TwigTemplate_cc72a536338e8e4487e49549470ee2bd extends \Twig\Template
     <div class=\"grid\">
         <div class=\"grid-list\">
           {% for item in data %}
-          <div class=\"user-info\">
-             <img src=\"{{item.profile_image_url is defined ?  item.profile_image_url|replace({'_normal':''}) : ''}}\">
-             <div class=\"attributes\">
-                      <span>@{{item.username}}</span>
-                      <p>{{item.bio}}</p>
-                      <div class=\"ml-0\">
-                            <span> {{item.make is defined ? item.make : '' }}  </span> 
-                            - <span class=\"ml-3\">   {{item.model is defined ? item.model : '' }}  </span>
-                      </div>
-                     
-             
-             </div>
-
-          </div>
+            <div class=\"user-info\">
+                <img src=\"{{item.profile_image_url is defined ?  item.profile_image_url|replace({'_normal':''}) : ''}}\">
+                    <div class=\"attributes\">
+                            <span>{{item.username is defined  ? '@' ~  item.username : ''}}</span>
+                            <p>{{item.description}}</p>
+                            <div class=\"ml-0\">
+                                      <span> {{item.make is defined ? item.make : '' }}  </span> 
+                                     - <span class=\"ml-0\">   {{item.model is defined ? item.model : '' }}  </span>
+                                      <span style=\"display:block; top:30px;\" >  {{item.price is defined ? 'Fiyat: '  ~  item.price : '' }}  </span>
+                            </div>
+                    </div>
+                   
+            </div>
+            
           {% endfor %}
 
        </div>
@@ -258,7 +260,6 @@ class __TwigTemplate_cc72a536338e8e4487e49549470ee2bd extends \Twig\Template
                     </h2>
                     
                     <ul id=\"model_list\"></ul>
-                    
               </div>
 -        <button type=\"submit\" class=\"btn  btn-outline-success\"> Filtrele  </button>
       </form>
@@ -276,6 +277,6 @@ class __TwigTemplate_cc72a536338e8e4487e49549470ee2bd extends \Twig\Template
 {% endblock %}
 
 
-", "admin/index.html.twig", "C:\\xampp\\htdocs\\used-cars-listing-demo\\templates\\admin\\index.html.twig");
+", "admin/index.html.twig", "C:\\xampp\\htdocs\\used-car-listing\\templates\\admin\\index.html.twig");
     }
 }

@@ -9,36 +9,20 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class IndexControllerTest extends WebTestCase
 {
-
     public $q;
     public $entityManager;
     public $createSqlQuery;
-
     public $make;
-
     public $model;
-
     public $price_max;
-
-
     public $price_min;
-
     public $year;
-
     public $page;
-
     public $client;
-    
     private $pager;
-
     private $dataCount;
-
     private $datas = [];
-
     private $data;
-
-
-
     public static $pageSize = 20;
 
     public function setUp():void{
@@ -123,7 +107,6 @@ class IndexControllerTest extends WebTestCase
              $modelCount += 1;
             }
          }
-    
     
         if(isset($this->year)){
           $this->createSqlQuery .= 'AND year ="'.$this->year.'"';

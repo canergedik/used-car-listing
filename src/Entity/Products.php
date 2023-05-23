@@ -46,6 +46,10 @@ class Products
     #[ORM\Column(length: 200,nullable: true)]
 
     private ?string $fuelType = null;
+
+    #[ORM\Column(length: 200,nullable: true)]
+
+    private ?string $price = null;
     
     #[ORM\Column(length: 250)]
     private ?string $location = null;
@@ -234,6 +238,17 @@ class Products
     {
         $this->id_str = $id_str;
 
+        return $this;
+    }
+
+    public function getPrice(): ?string
+    {
+        return $this->price;
+    }
+
+    public function setPrice(string $price): self
+    {
+        $this->price = $price;
         return $this;
     }
 

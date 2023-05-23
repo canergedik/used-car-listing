@@ -1,5 +1,5 @@
 
-var localPath =  location.origin.includes('local') ? location.origin + '/used-cars-listing-demo/public' : location.origin; 
+var localPath =  location.origin.includes('local') ? location.origin + '/used-car-listing/public' : location.origin; 
 
 $(document).ready(function(){
     $('#edit-search').keyup(function(){
@@ -23,10 +23,6 @@ $(document).ready(function(){
 
 
 form_update_datas = {};
-
-
-
-
 $(document).ready(function(){
    
     $('#filter_form').change(function(e){
